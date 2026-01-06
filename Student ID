@@ -1,0 +1,52 @@
+package Lec3_Scanner;
+
+import java.util.Scanner;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.text.ParseException;
+
+public class Thongtinsinhvien {
+    public static void main(String[] args) {
+        Scanner tt = new Scanner(System.in);
+
+        System.out.print("Nhap ho va ten: ");
+        String fullName = tt.nextLine();
+       
+        System.out.print("Nhap student ID: ");
+        int studentID = tt.nextInt();
+        tt.nextLine(); 
+       
+        System.out.print("Nhap que quan: ");
+        String hometown = tt.nextLine();
+
+        System.out.print("Nhap diem GPA: ");
+        float gpa = tt.nextFloat();
+        tt.nextLine(); 
+        
+        System.out.print("Nhap chuyen nganh: ");
+        String major = tt.nextLine();
+       
+        System.out.print("Co hoc bong khong? (true/false): ");
+        boolean scholarship = tt.nextBoolean();
+        tt.nextLine();
+        
+        System.out.print("Nhap ngay thang nam sinh(dd/MM/yyyy): ");
+        String dayOfBirthString = tt.nextLine();
+       
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date dayOfBirth;
+        try {           
+            dayOfBirth = sdf.parse(dayOfBirthString);
+            System.out.println("\n----- THONG TIN SINH VIEN -----");
+            System.out.println("Ho va ten: " + fullName
+                + "\nStudent ID: " + studentID 
+                + "\nQue quan: " + hometown 
+                + "\nDiem GPA: " + gpa 
+                + "\nChuyen nganh: " + major
+                + "\nHoc bong: " + scholarship
+                + "\nNgay thang nam sinh: " + sdf.format(dayOfBirth));
+        } catch (ParseException ex) {
+            System.out.println("Sai dinh dang ngay!");
+        }              
+    }
+}
